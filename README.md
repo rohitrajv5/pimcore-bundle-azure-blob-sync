@@ -2,13 +2,6 @@
 
 Pimcore Azure Bundle is use to push Pimcore Assets on Azure Blob Storage
 
-## Installation
-
-Download bundle from GitHub
-
-```bash
-composer install rohitrajv5/azure-pimcore-bundle
-```
 
 ## Installation
 
