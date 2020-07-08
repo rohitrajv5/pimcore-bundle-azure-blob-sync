@@ -1,5 +1,5 @@
 {
-    "name": "rohitrajv5/azure-pimcore-bundle",
+    "name": " rohitrajv5/pimcore-bundle-azure-blob-sync",
     "description": "This bundle use to sync all records Assets from Pimcore to Azure Blob Storage",
     "type": "pimcore-bundle",
     "require": {
