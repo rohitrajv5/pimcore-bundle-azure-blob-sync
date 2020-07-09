@@ -16,8 +16,8 @@ Add following code in "var/config/azure.php". Replace your credentials here
 ```bash
 <?php 
 return [
-    "accountUrl" => "https://pcdevstorage.blob.core.windows.net",
-    "accountName" => "pcdevstorage",
+    "accountUrl" => "https://********.blob.core.windows.net",
+    "accountName" => "***********",
     "accountKey" => "********************************",
     "container" => "***********************",
     "enableAzure" => FALSE
