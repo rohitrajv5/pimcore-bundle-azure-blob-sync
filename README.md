@@ -2,6 +2,9 @@
 
 Pimcore Azure Bundle is use to push Pimcore Assets on Azure Blob Storage
 
+## Compatible with Pimcore > v5.6. Tested on Pimcore 6
+
+## Integration into Pimcore
 
 ## Installation
 
@@ -13,7 +16,7 @@ git clone https://github.com/rohitrajv5/pimcore-bundle-azure-blob-sync.git
 Copy "src/AzurePimcoreBundle" in your application "src" directory
 
 Add following code in "var/config/azure.php". Replace your credentials here
-```bash
+```php
 <?php 
 return [
     "accountUrl" => "https://********.blob.core.windows.net",
@@ -25,7 +28,7 @@ return [
 ```
 
 Add following code in "app/constant.php" 
-```bash
+```php
 try {
     $file = __DIR__ . '/../var/config/azure.php';
     if (file_exists($file)) {
@@ -56,7 +59,7 @@ if (isset($azureConfig['enableAzure']) && $azureConfig['enableAzure']) {
 define("ENABLE_AZURE",$azureEnabled);
 ```
 Add following code constant in "app/startup.php" 
-```bash
+```php
 use AppBundle\AzureBlobStorage\StreamWrapper;
 if (ENABLE_AZURE) {
     $accountUrl = AZURE_ACCOUNT_URL;
@@ -76,7 +79,7 @@ if (ENABLE_AZURE) {
 }
 ```
 Add following code constant in "app/config/services.yml" 
-```bash
+```php
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -121,7 +124,7 @@ You can enter Azure Blog Storage Detail here as well
   - Sync tmp folder
 
 Manage folder sync option from "app/constant.php"
-```
+```php
     define("AZURE_ACCOUNT_URL", $azureConfig['accountUrl']);
     define("AZURE_ACCOUNT_NAME", $azureConfig['accountName']);
     define("AZURE_ACCOUNT_KEY", $azureConfig['accountKey']);
@@ -140,12 +143,6 @@ Manage folder sync option from "app/constant.php"
 ```
 Uncomment option, Which you want to sync on Azure Blob Storage.
 
-License
+## License
 ----
-
 GPL-3.0+
-
-
-**Free Software, Hell Yeah! Contact for more updates**
-
-
