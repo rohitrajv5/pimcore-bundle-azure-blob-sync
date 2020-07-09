@@ -1,16 +1,30 @@
 {
-    "name": "rohitrajv5/pimcore-bundle-azure-blob-sync",
-    "description": "This bundle use to sync all records Assets from Pimcore to Azure Blob Storage",
-    "type": "pimcore-bundle",
-    "require": {
-        "microsoft/azure-storage-blob": "^1.5"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Rohit Raj Verma",
-            "email": "rohitrajv5@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev"
+  "name": "rohitrajv5/pimcore-bundle-azure-blob-sync",
+  "description": "This bundle use to sync all records Assets from Pimcore to Azure Blob Storage",
+  "type": "pimcore-bundle",
+  "license": "GPL-3.0+",
+  "keywords": [
+    "pimcore",
+    "facebook",
+    "google",
+    "catalogue",
+    "feed"
+  ],
+  "authors": [
+    {
+      "name": "Rohit Raj Verma",
+      "email": "rohitrajv5@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "AzurePimcoreBundle\\":"src"         
+      }     
+   },
+   "require":{
+      "microsoft/azure-storage-blob": "^1.5"
+   } 
 }
+
+
