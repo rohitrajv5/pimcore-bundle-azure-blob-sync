@@ -143,7 +143,7 @@ Uncomment option, Which you want to sync on Azure Blob Storage.
 License
 ----
 
-MIT
+GPL-3.0+
 
 
 **Free Software, Hell Yeah! Contact for more updates**
