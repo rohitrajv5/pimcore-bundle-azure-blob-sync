@@ -3,8 +3,8 @@
   "description": "This bundle use to sync all records Assets from Pimcore to Azure Blob Storage",
   "type": "pimcore-bundle",
   "license": "GPL-3.0+",
-   "minimum-stability": "dev",
-    "prefer-stable": true,
+  "minimum-stability": "stable",
+  "prefer-stable": true,
   "keywords": [
     "pimcore",
     "facebook",
