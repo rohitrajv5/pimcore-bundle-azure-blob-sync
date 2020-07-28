@@ -11,7 +11,7 @@ Install with Composer
 composer require rohitrajv5/pimcore-bundle-azure-blob-sync
 ```
 
-Execute following commands
+#### Execute following commands
 ```bash
 bin/console pimcore:bundle:enable AzurePimcoreBundle
 bin/console assets:install web
@@ -20,7 +20,7 @@ Plugin will look like this
 
 ![alt text](https://i.postimg.cc/Gtp6TJkn/Screenshot-from-2020-07-07-13-47-41.png)
 
-##### Execute following commands
+##### Changes in Pimcore Admin
 1. Goto Pimcore Admin -> Settings -> Azure Blog Container Settings
 
 2. Enter your credentials and save.
