@@ -1,8 +1,8 @@
-pimcore.registerNS("pimcore.plugin.appBundle");
+pimcore.registerNS("pimcore.plugin.pimcoreAzureBundle");
 
-pimcore.plugin.appBundle = Class.create(pimcore.plugin.admin, {
+pimcore.plugin.pimcoreAzureBundle = Class.create(pimcore.plugin.admin, {
     getClassName: function () {
-        return "pimcore.plugin.appBundle";
+        return "pimcore.plugin.pimcoreAzureBundle";
     },
 
     initialize: function () {
@@ -33,4 +33,4 @@ pimcore.plugin.appBundle = Class.create(pimcore.plugin.admin, {
     },
 });
 
-var AppBundlePlugin = new pimcore.plugin.appBundle();
+var AzurePimcoreBundlePlugin = new pimcore.plugin.pimcoreAzureBundle();

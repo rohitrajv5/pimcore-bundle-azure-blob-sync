@@ -1,10 +1,10 @@
 <?php
 
-namespace AppBundle\AzureBlobStorage;
+namespace AzurePimcoreBundle\AzureBlobStorage;
 
-use AppBundle\AzureBlobStorage\CacheInterface;
-use AppBundle\AzureBlobStorage\LruArrayCache;
-use AppBundle\AzureBlobStorage\BlobException;
+use AzurePimcoreBundle\AzureBlobStorage\CacheInterface;
+use AzurePimcoreBundle\AzureBlobStorage\LruArrayCache;
+use AzurePimcoreBundle\AzureBlobStorage\BlobException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Stream;
 use GuzzleHttp\Psr7\CachingStream;

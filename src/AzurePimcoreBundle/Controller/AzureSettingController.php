@@ -35,7 +35,7 @@ use AzurePimcoreBundle\Lib\Config;
 class AzureSettingController extends FrontendController {
 
     /**
-     * @Route("/admin/settings/get-azure", methods={"GET"})
+     * @Route("/admin/settings/get-azure", name="get_azure")
      *
      * @param Request $request
      *
@@ -67,7 +67,7 @@ class AzureSettingController extends FrontendController {
     }
     
     /**
-     * @Route("/admin/settings/set-azure", methods={"PUT"})
+     * @Route("/admin/settings/set-azure", name="set_azure")
      *
      * @param Request $request
      *
@@ -93,7 +93,7 @@ class AzureSettingController extends FrontendController {
             $values['azureOptions'] = $optionArray;
         }
 
-        $configFile = \Pimcore\Config::locateConfigFile('azure.php');
+        $configFile = \Pimcore\Config::locateConfigFile('azure.php');       
         File::putPhpFile($configFile, to_php_data_file_format($values));
 
         return $this->json(['success' => true]);

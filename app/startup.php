@@ -1,6 +1,6 @@
 <?php
 
-use AppBundle\AzureBlobStorage\StreamWrapper;
+use AzurePimcoreBundle\AzureBlobStorage\StreamWrapper;
 
 if (ENABLE_AZURE) {
     

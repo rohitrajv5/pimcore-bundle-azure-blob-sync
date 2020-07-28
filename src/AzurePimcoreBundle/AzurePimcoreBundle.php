@@ -19,7 +19,7 @@ use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use \Pimcore\Model\User\Permission\Definition;
 
 class AzurePimcoreBundle extends AbstractPimcoreBundle {
-
+   
     public function getJsPaths() {
         return [
             '/bundles/azurepimcore/js/pimcore/startup.js',
@@ -31,6 +31,4 @@ class AzurePimcoreBundle extends AbstractPimcoreBundle {
         $this->getJsPaths();
         $this->getCssPaths();  
     }
-
 }
-
