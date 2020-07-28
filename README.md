@@ -1,14 +1,12 @@
 # Pimcore Azure Bundle
 
-Pimcore Azure Bundle is use to push Pimcore Assets on Azure Blob Storage
+Pimcore Azure Bundle is use to push Pimcore Assets on Microsoft Azure Blob Storage
 
 ## Compatible with Pimcore > v5.6. Tested on Pimcore 6
 
-## Integration into Pimcore
+### Installation
 
-## Installation
-
-Install via composer
+Install with Composer
 ```bash
 composer require rohitrajv5/pimcore-bundle-azure-blob-sync
 ```
@@ -22,15 +20,15 @@ Plugin will look like this
 
 ![alt text](https://i.postimg.cc/Gtp6TJkn/Screenshot-from-2020-07-07-13-47-41.png)
 
+##### Execute following commands
+1. Goto Pimcore Admin -> Settings -> Azure Blog Container Settings
 
-Goto Pimcore Admin -> Settings -> Azure Blog Container Settings
-
-Enter your credentials and save.
+2. Enter your credentials and save.
 
 
-# Configurations!
+## Configurations & Settings
 
-Add following code in "app/constant.php" 
+#### Add following code in "app/constant.php" 
 
 ```php
 try {
@@ -63,7 +61,7 @@ define("ENABLE_AZURE",$azureEnabled);
 ```
 Uncomment option, Which you want to sync on Azure Blob Storage.
 
-Add following code constant in "app/startup.php" 
+#### Add following code constant in "app/startup.php" 
 
 ```php
 use AzurePimcoreBundle\AzureBlobStorage\StreamWrapper;
