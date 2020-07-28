@@ -19,7 +19,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "AzurePimcoreBundle\\":"src"         
+      "AzurePimcoreBundle\\": "src/AzurePimcoreBundle/"       
       }     
    },
    "require":{
@@ -27,5 +27,3 @@
       "microsoft/azure-storage-blob": "^1.5"
    } 
 }
-
-

@@ -1,6 +1,6 @@
 <?php
 
-namespace AzurePimcoreBundle\Controller;
+namespace AzurePimcoreBundle\AzurePimcoreBundle\Controller;
 
 use Pimcore\Controller\FrontendController;
 use Pimcore\Cache;
