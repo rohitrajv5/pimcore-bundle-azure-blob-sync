@@ -14,22 +14,24 @@ pimcore.plugin.pimcoreAzureBundle = Class.create(pimcore.plugin.admin, {
     },
 
     pimcoreReady: function (params, broker) {
+        if(pimcore.currentuser.permissions.indexOf("azure_blob_storage_bundle") >= 0) {
             var settingsMenu = new Ext.Action({
-            text: 'The Azure Container Configurations',
-            iconCls: 'pimcore_icon_gridconfig_class_attributes',
-            handler: function () {
-                var dataExportMainTab = Ext.get("pimcore_settings_azure");
-                if (dataExportMainTab) {
-                    var tabPanel = Ext.getCmp("pimcore_panel_tabs");
-                    tabPanel.setActiveItem("pimcore_settings_azure");
-                } else {
-                    azuretab = new pimcore.plugin.azure();
+                text: 'The Azure Container Configurations',
+                iconCls: 'pimcore_icon_gridconfig_class_attributes',
+                handler: function () {
+                    var dataExportMainTab = Ext.get("pimcore_settings_azure");
+                    if (dataExportMainTab) {
+                        var tabPanel = Ext.getCmp("pimcore_panel_tabs");
+                        tabPanel.setActiveItem("pimcore_settings_azure" );
+                    } else {
+                        azuretab = new pimcore.plugin.azure();
+                    }
                 }
-            }
-        });
-
-        if (layoutToolbar.settingsMenu)
-            layoutToolbar.settingsMenu.add(settingsMenu);
+            });
+    
+            if (layoutToolbar.settingsMenu)
+                layoutToolbar.settingsMenu.add(settingsMenu);
+        }
     },
 });
 

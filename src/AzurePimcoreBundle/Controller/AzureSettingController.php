@@ -43,27 +43,38 @@ class AzureSettingController extends FrontendController {
      */
     public function getAzureAction(Request $request)
     {
-//        $this->checkPermission('azure_settings');
 
-        $values = Config::getAzureConfig();
-        $valueArray = $values->toArray();
-        $optionsString = [];
-        if ($valueArray['azureOptions']) {
-            foreach ($valueArray['azureOptions'] as $key => $value) {
-                $tmpStr = '--'.$key;
-                if ($value !== null && $value !== '') {
-                    $tmpStr .= ' '.$value;
+        /** @var \Pimcore\Bundle\AdminBundle\Security\User\User $user */
+        $user = $this->getUser();
+        $pimcoreUser = $user->getUser();
+
+        if($pimcoreUser->isAllowed('azure_blob_storage_bundle')) {
+            $values = Config::getAzureConfig();
+            $valueArray = $values->toArray();
+            $optionsString = [];
+            if ($valueArray['azureOptions']) {
+                foreach ($valueArray['azureOptions'] as $key => $value) {
+                    $tmpStr = '--'.$key;
+                    if ($value !== null && $value !== '') {
+                        $tmpStr .= ' '.$value;
+                    }
+                    $optionsString[] = $tmpStr;
                 }
-                $optionsString[] = $tmpStr;
             }
+            $valueArray['azureOptions'] = implode("\n", $optionsString);
+    
+            $response = [
+                'values' => $valueArray
+            ];
+    
+            return $this->json($response);
+        }else{
+            $array = array('success' => false);
+            $response = new Response(json_encode($array), 401);
+            $response - > headers - > set('Content-Type', 'application/json');
+      
+            return $response;
         }
-        $valueArray['azureOptions'] = implode("\n", $optionsString);
-
-        $response = [
-            'values' => $valueArray
-        ];
-
-        return $this->json($response);
     }
     
     /**
@@ -75,28 +86,34 @@ class AzureSettingController extends FrontendController {
      */
     public function setAzureAction(Request $request)
     {
-//        $this->checkPermission('azure_settings');
-
-        $values = $this->decodeJson($request->get('data'));
-
-        if ($values['azureOptions']) {
-            $optionArray = [];
-            $lines = explode("\n", $values['azureOptions']);
-            foreach ($lines as $line) {
-                $parts = explode(' ', substr($line, 2));
-                $key = trim($parts[0]);
-                if ($key) {
-                    $value = trim($parts[1]);
-                    $optionArray[$key] = $value;
+        if($pimcoreUser->isAllowed('azure_blob_storage_bundle')) {
+            $values = $this->decodeJson($request->get('data'));
+    
+            if ($values['azureOptions']) {
+                $optionArray = [];
+                $lines = explode("\n", $values['azureOptions']);
+                foreach ($lines as $line) {
+                    $parts = explode(' ', substr($line, 2));
+                    $key = trim($parts[0]);
+                    if ($key) {
+                        $value = trim($parts[1]);
+                        $optionArray[$key] = $value;
+                    }
                 }
+                $values['azureOptions'] = $optionArray;
             }
-            $values['azureOptions'] = $optionArray;
+    
+            $configFile = \Pimcore\Config::locateConfigFile('azure.php');       
+            File::putPhpFile($configFile, to_php_data_file_format($values));
+    
+            return $this->json(['success' => true]);
+        }else{
+            $array = array('success' => false);
+            $response = new Response(json_encode($array), 401);
+            $response - > headers - > set('Content-Type', 'application/json');
+      
+            return $response;
         }
-
-        $configFile = \Pimcore\Config::locateConfigFile('azure.php');       
-        File::putPhpFile($configFile, to_php_data_file_format($values));
-
-        return $this->json(['success' => true]);
     }
     
     /**
