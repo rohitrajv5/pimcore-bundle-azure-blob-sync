@@ -71,7 +71,7 @@ class AzureSettingController extends FrontendController {
         }else{
             $array = array('success' => false);
             $response = new Response(json_encode($array), 401);
-            $response - > headers - > set('Content-Type', 'application/json');
+            $response->headers->set('Content-Type', 'application/json');
       
             return $response;
         }
@@ -110,7 +110,7 @@ class AzureSettingController extends FrontendController {
         }else{
             $array = array('success' => false);
             $response = new Response(json_encode($array), 401);
-            $response - > headers - > set('Content-Type', 'application/json');
+            $response->headers->set('Content-Type', 'application/json');
       
             return $response;
         }
